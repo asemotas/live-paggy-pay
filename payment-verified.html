@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Payment Verified - PaggyPay</title>
+    <link rel="stylesheet" href="all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #292210, #4a3c1a);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: bounceIn 0.5s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        h4 {
+            font-size: 1.7em;
+            font-weight: 500;
+            color: #FFD700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        h4 i {
+            color: #00FF7F;
+        }
+
+        h5 {
+            font-size: 0.95em;
+            font-weight: 400;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #00FF7F;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #00FF7F;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-message i {
+            font-size: 1.1em;
+        }
+
+        .action-steps {
+            text-align: left;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-steps h6 {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .action-steps ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .action-steps li {
+            position: relative;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .action-steps li::before {
+            content: "✓";
+            position: absolute;
+            left: -20px;
+            color: #00FF7F;
+            font-size: 1.1em;
+        }
+
+        .button {
+            display: inline-block;
+            width: 100%;
+            max-width: 280px;
+            margin: 10px auto;
+            padding: 14px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.refund {
+            background: linear-gradient(45deg, #F59E0B, #D97706);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+        }
+
+        .button.refund:hover {
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            h4 {
+                font-size: 1.5em;
+            }
+
+            h5 {
+                font-size: 0.9em;
+            }
+
+            .success-message {
+                font-size: 0.85em;
+                padding: 12px;
+            }
+
+            .action-steps {
+                font-size: 0.85em;
+                padding: 12px;
+            }
+
+            .action-steps h6 {
+                font-size: 1.1em;
+            }
+
+            .button {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="ver.png" alt="PaggyPay Logo" class="logo">
+        <h4><i class="fas fa-check-circle"></i> Payment Verified</h4>
+        <h5>Congratulations! Your payment has been successfully processed. You're all set to enjoy PaggyPay services.</h5>
+        <div class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <span>Your ₦36000.00 activation fee has been successfully verified. Your account is now active!</span>
+        </div>
+        <div class="action-steps">
+            <h6>What's Next?</h6>
+            <ul>
+                <li>Your account is now active and ready to use.</li>
+                <li>Explore PaggyPay features to maximize your experience.</li>
+                <li>you can now start earning with paggy pay</li>
+            </ul>
+        </div>
+        <a href="next.html"><button class="button">Go to Dashboard</button></a>
+    </div>
+
+    <script>
+        // Disable right-click with a professional message
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('This page is secured by PaggyPay.');
+        });
+    </script>
+
+</body></html>

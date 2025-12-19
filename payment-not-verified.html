@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Payment Failed - PaggyPay</title>
+    <link rel="stylesheet" href="all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #292210, #4a3c1a);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: bounceIn 0.5s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        h4 {
+            font-size: 1.7em;
+            font-weight: 500;
+            color: #FFD700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        h4 i {
+            color: #dc2626;
+        }
+
+        h5 {
+            font-size: 0.95em;
+            font-weight: 400;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .error-message {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid #dc2626;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #dc2626;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: shake 0.6s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+            20%, 40%, 60%, 80% { transform: translateX(4px); }
+        }
+
+        .error-message i {
+            font-size: 1.1em;
+        }
+
+        .action-steps {
+            text-align: left;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-steps h6 {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .action-steps ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .action-steps li {
+            position: relative;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .action-steps li::before {
+            content: "•";
+            position: absolute;
+            left: -20px;
+            color: #00FF7F;
+            font-size: 1.2em;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 14px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            h4 {
+                font-size: 1.5em;
+            }
+
+            h5 {
+                font-size: 0.9em;
+            }
+
+            .error-message {
+                font-size: 0.85em;
+                padding: 12px;
+            }
+
+            .action-steps {
+                font-size: 0.85em;
+                padding: 12px;
+            }
+
+            .action-steps h6 {
+                font-size: 1.1em;
+            }
+
+            .button {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="pend.png" alt="PaggyPay Logo" class="logo">
+        <h4><i class="fas fa-exclamation-circle"></i> Payment Failed</h4>
+        <h5>Oops! Something went wrong with your payment. Please review the details and try again.</h5>
+        <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Payment verification failed. Please ensure the correct payment details and receipt are provided.</span>
+        </div>
+        <div class="action-steps">
+            <h6>Next Steps</h6>
+            <ul>
+                <li>Verify the payment was made to the correct account (MoniePoint, Account: 5777409378, Name: EGBO).</li>
+                <li>Ensure the payment amount is exactly ₦36,000.00.</li>
+                <li>Upload a valid payment receipt with clear transaction details.</li>
+            </ul>
+        </div>
+        <a href="pay.html"><button class="button">Try Again</button></a>
+    </div>
+
+    <script>
+        // Disable right-click with a professional message
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('This page is secured by PaggyPay.');
+        });
+    </script>
+
+</body></html>
